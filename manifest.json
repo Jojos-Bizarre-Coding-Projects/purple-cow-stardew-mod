@@ -1,0 +1,11 @@
+{
+    "Name": "MilkaCow",
+    "Author": "namesrstupid",
+    "Version": "1.0.0",
+    "Description": "This mod adds the milka cow as a version of the regular cow. Of course, it has to produce chocolate milk.",
+    "UniqueID": "namesrstupid.MilkaCow",
+    "UpdateKeys": ["Nexus:38152"],
+    "ContentPackFor": {
+        "UniqueID": "Pathoschild.ContentPatcher"
+    }
+}

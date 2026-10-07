@@ -1,0 +1,211 @@
+{
+  "Format": "2.7.0",
+  "Changes": [
+    {
+      "LogName": "Add Milka cow as normal cow variant",
+      "Action": "EditData",
+      "Target": "Data/FarmAnimals",
+      "TargetField": ["White Cow", "AlternatePurchaseTypes", "Default", "AnimalIds"],
+      "Entries": {
+        "milka_cow": "Milka Cow"
+      }
+    },
+    {
+      "LogName": "Add Data for Milka cow",
+      "Action": "EditData",
+      "Target": "Data/FarmAnimals",
+      "Entries": {
+        "Milka Cow": {
+          "DisplayName": "Milka Cow",
+          "House": "Barn",
+          "Gender": "Female",
+          "PurchasePrice": -1,
+          "SellPrice": 1500,
+          "ShopTexture": null,
+          "ShopSourceRect": {
+            "X": 0,
+            "Y": 0,
+            "Width": 0,
+            "Height": 0
+          },
+          "ShopDisplayName": null,
+          "ShopDescription": null,
+          "ShopMissingBuildingDescription": null,
+          "RequiredBuilding": null,
+          "UnlockCondition": null,
+          "AlternatePurchaseTypes": null,
+          "EggItemIds": null,
+          "IncubationTime": -1,
+          "IncubatorParentSheetOffset": 1,
+          "BirthText": null,
+          "DaysToMature": 5,
+          "CanGetPregnant": true,
+          "DaysToProduce": 1,
+          "HarvestType": "HarvestWithTool",
+          "HarvestTool": "Milk Pail",
+          "ProduceItemIds": [
+            {
+              "Id": "Default",
+              "Condition": null,
+              "MinimumFriendship": 0,
+              "ItemId": "chocomilk_small"
+            }
+          ],
+          "DeluxeProduceItemIds": [
+            {
+              "Id": "Default",
+              "Condition": null,
+              "MinimumFriendship": 0,
+              "ItemId": "chocomilk_large"
+            }
+          ],
+          "ProduceOnMature": false,
+          "FriendshipForFasterProduce": -1,
+          "DeluxeProduceMinimumFriendship": 200,
+          "DeluxeProduceCareDivisor": 1200.0,
+          "DeluxeProduceLuckMultiplier": 0.0,
+          "CanEatGoldenCrackers": true,
+          "ProfessionForHappinessBoost": 3,
+          "ProfessionForQualityBoost": 3,
+          "ProfessionForFasterProduce": -1,
+          "Sound": "cow",
+          "BabySound": null,
+          "Texture": "{{InternalAssetKey: assets/milka_cow.png}}",
+          "HarvestedTexture": null,
+          "BabyTexture": "{{InternalAssetKey: assets/baby_milka_cow}}",
+          "UseFlippedRightForLeft": true,
+          "SpriteWidth": 32,
+          "SpriteHeight": 32,
+          "UseDoubleUniqueAnimationFrames": false,
+          "SleepFrame": 12,
+          "EmoteOffset": {
+            "X": 0,
+            "Y": 0
+          },
+          "SwimOffset": {
+            "X": 0,
+            "Y": 112
+          },
+          "Skins": null,
+          "ShadowWhenBabySwims": null,
+          "ShadowWhenBaby": null,
+          "ShadowWhenAdultSwims": null,
+          "ShadowWhenAdult": null,
+          "Shadow": {
+            "Visible": false,
+            "Offset": null,
+            "Scale": null
+          },
+          "CanSwim": false,
+          "BabiesFollowAdults": false,
+          "GrassEatAmount": 4,
+          "HappinessDrain": 6,
+          "UpDownPetHitboxTileSize": "1, 1.75",
+          "LeftRightPetHitboxTileSize": "1.75, 1.25",
+          "BabyUpDownPetHitboxTileSize": "1, 1.75",
+          "BabyLeftRightPetHitboxTileSize": "1.75, 1",
+          "StatToIncrementOnProduce": [
+            {
+              "Id": "cowMilkProduced",
+              "RequiredItemId": null,
+              "RequiredTags": null,
+              "StatName": "cowMilkProduced"
+            }
+          ],
+          "ShowInSummitCredits": false,
+          "CustomFields": null
+        }
+      }
+    },
+    {
+      "LogName": "Add Data for small chocolate milk",
+      "Action": "EditData",
+			"Target": "Data/Objects",
+			"Entries": {
+        "chocomilk_small": {
+          "Name": "chocomilk_small",
+          "DisplayName": "Small Chocolate Milk",
+          "Description": "A sweet drink enjoyed by both children and adults.",
+          "Type": "Basic",
+				  "Category": -6,
+				  "Price": 300,
+          "Texture": "{{InternalAssetKey: assets/chocomilk_small.png}}",
+				  "SpriteIndex": 0,
+          "Edibility": 20,
+				  "IsDrink": true,
+          "ExcludeFromShippingCollection": false,
+          "ContextTags": [
+            "color_brown",
+            "cow_milk_item",
+            "drink_item",
+            "milk_item"
+          ],
+          "GiftTastes": {
+            "Love": ["Leo", "Sebastian", "Linus", "Vincent", "Jas" ],
+            "Like": ["Maru", "Emily", "Robin", "Abigail", "Sandy", "Jodi", "Gus", "Marnie",  "Penny", "Leah", "Sam", "Haley"],
+            "Neutral": ["Caroline", "Evelyn", "Willy", "Shane", "Pierre", "Pam", "Wizard", "Clint"],
+            "Dislike": ["George", "Elliot", "Lewis", "Alex", "Harvey", "Kent"],
+            "Hate": ["Demetrius", "Dwarf", "Krobus"]
+					}
+        }
+      }
+    },
+    {
+      "LogName": "Add Data for large chocolate milk",
+      "Action": "EditData",
+			"Target": "Data/Objects",
+			"Entries": {
+        "chocomilk_large": {
+          "Name": "chocomilk_large",
+          "DisplayName": "Large Chocolate Milk",
+          "Description": "An unhealthy quantity of chocolate milk. Your local doctor might judge you if you drink the whole thing.",
+          "Type": "Basic",
+				  "Category": -6,
+				  "Price": 400,
+          "Texture": "{{InternalAssetKey: assets/chocomilk_big.png}}",
+				  "SpriteIndex": 0,
+          "Edibility": 25,
+				  "IsDrink": true,
+          "ExcludeFromShippingCollection": false,
+          "ContextTags": [
+            "color_brown",
+            "cow_milk_item",
+            "drink_item",
+            "milk_item"
+          ],
+          "GiftTastes": {
+            "Love": ["Leo", "Sebastian", "Linus", "Vincent", "Jas" ],
+            "Like": ["Maru", "Emily", "Robin", "Abigail", "Sandy", "Jodi", "Gus", "Marnie",  "Penny", "Leah", "Sam", "Haley"],
+            "Neutral": ["Caroline", "Evelyn", "Willy", "Shane", "Pierre", "Pam", "Wizard", "Clint"],
+            "Dislike": ["George", "Elliot", "Lewis", "Alex", "Kent"],
+            "Hate": ["Demetrius", "Dwarf", "Krobus", "Harvey"]
+					}
+        }
+      }
+    },
+    {
+      "LogName": "Load asset for adult Milka cow",
+      "Action": "Load",
+      "Target": "assets/Animals/milka_cow",
+      "FromFile": "assets/milka_cow.png"
+    },
+    {
+      "LogName": "Load asset for baby Milka cow",
+      "Action": "Load",
+      "Target": "assets/Animals/milka_cow",
+      "FromFile": "assets/baby_milka_cow.png"
+    },
+    {
+      "LogName": "Load asset for small chocolate milk",
+      "Action": "Load",
+      "Target": "assets/Items/chocomilk_small",
+      "FromFile": "assets/chocomilk_small.png"
+    },
+    {
+      "LogName": "Load asset for large chocolate milk",
+      "Action": "Load",
+      "Target": "assets/Items/chocomilk_big",
+      "FromFile": "assets/chocomilk_big.png"
+    }
+  ]
+}
