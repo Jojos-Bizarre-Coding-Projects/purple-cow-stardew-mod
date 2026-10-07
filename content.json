@@ -184,6 +184,165 @@
       }
     },
     {
+      "LogName": "Add Data for chocolate cream",
+      "Action": "EditData",
+			"Target": "Data/Objects",
+			"Entries": {
+        "chocolate_cream": {
+          "Name": "chocolate_cream",
+          "DisplayName": "Chocolate Cream",
+          "Description": "A creamy chocolate dessert",
+          "Type": "Basic",
+				  "Category": -26,
+				  "Price": 400,
+          "Texture": "{{InternalAssetKey: assets/chocolate_cream.png}}",
+				  "SpriteIndex": 0,
+          "Edibility": 30,
+				  "IsDrink": true,
+          "ExcludeFromShippingCollection": false,
+          "ContextTags": [
+            "color_brown",
+            "milka_cow"
+          ],
+          "GiftTastes": {
+            "Love": ["Leo", "Sebastian", "Linus", "Vincent", "Jas" ],
+            "Like": ["Maru", "Emily", "Robin", "Abigail", "Sandy", "Jodi", "Gus", "Marnie",  "Penny", "Leah", "Sam", "Haley", "Elliot"],
+            "Neutral": ["Caroline", "Evelyn", "Willy", "Shane", "Pierre", "Pam", "Wizard", "Clint"],
+            "Dislike": ["George", "Lewis", "Alex", "Kent", "Harvey"],
+            "Hate": ["Demetrius", "Dwarf", "Krobus"]
+					}
+        }
+      }
+    },
+    {
+      "LogName": "Add Data for chocolate pudding",
+      "Action": "EditData",
+			"Target": "Data/Objects",
+			"Entries": {
+        "chocolate_cream": {
+          "Name": "chocolate_pudding",
+          "DisplayName": "Chocolate Pudding",
+          "Description": "A chocolate dessert loved by children",
+          "Type": "Basic",
+				  "Category": -26,
+				  "Price": 400,
+          "Texture": "{{InternalAssetKey: assets/chocolate_pudding.png}}",
+				  "SpriteIndex": 0,
+          "Edibility": 30,
+				  "IsDrink": true,
+          "ExcludeFromShippingCollection": false,
+          "ContextTags": [
+            "color_brown",
+            "milka_cow"
+          ],
+          "GiftTastes": {
+            "Love": ["Leo", "Sebastian", "Vincent", "Jas" ],
+            "Like": ["Maru", "Emily", "Robin", "Abigail", "Sandy", "Marnie",  "Penny", "Leah", "Sam", "Haley", "Linus"],
+            "Neutral": ["Caroline", "Evelyn", "Willy", "Shane", "Pierre", "Pam", "Wizard", "Clint", "Jodi", "Gus"],
+            "Dislike": ["George", "Lewis", "Alex", "Kent", "Elliot"],
+            "Hate": ["Demetrius", "Dwarf", "Krobus", "Harvey"]
+					}
+        }
+      }
+    },
+    {
+      "LogName": "Add output rule to preserves jar",
+      "Action": "EditData",
+      "Target": "Data/Machines",
+      "TargetField": ["(BC)15", "OutputRules"],
+      "Entries": {
+        "{{ModId}}_ChocoMilkToCream": {
+          "Id": "{{ModId}}_ChocoMilkToCream",
+          "Triggers": [
+            {
+              "Id": "{{ModId}}_ChocoMilkInput",
+              "Trigger": "ItemPlacedInMachine",
+              "RequiredTags": ["chocolate_milk_item"],
+              "RequiredCount": 1
+            }
+          ],
+          "OutputItem": [
+            {
+              "Id": "{{ModId}}_ChocoCreamOutput",
+              "ItemId": "chocolate_cream",
+              "MinStack": 1
+            }
+          ],
+          "DaysUntilReady": 2
+        }
+      }
+    },
+    {
+      "LogName": "Add output rule to cheese press",
+      "Action": "EditData",
+      "Target": "Data/Machines",
+      "TargetField": ["(BC)16", "OutputRules"],
+      "Entries": {
+        "{{ModId}}_ChocoMilkToCream": {
+          "Id": "{{ModId}}_ChocoMilkToPudding",
+          "Triggers": [
+            {
+              "Id": "{{ModId}}_ChocoMilkInput",
+              "Trigger": "ItemPlacedInMachine",
+              "RequiredTags": ["chocolate_milk_item"],
+              "RequiredCount": 1
+            }
+          ],
+          "OutputItem": [
+            {
+              "Id": "{{ModId}}_ChocoPuddingOutput",
+              "ItemId": "chocolate_pudding",
+              "MinStack": 1
+            }
+          ],
+          "DaysUntilReady": 1
+        }
+      }
+    },
+    {
+      "LogName": "Create hot chocolate cooking recipe",
+      "Action": "EditData",
+			"Target": "spacechase0.SpaceCore/CookingRecipeOverrides",
+      "Entries": {
+        "{{ModId}}_HotChocolate": {
+          "ProductQualifiedId": "(o){{ModId}}_HotChocolate",
+          "ProductAmount": 1,
+					"Ingredients": [
+            {
+              "Type": "ContextTag",
+							"Value": "chocolate_milk_item",
+							"Amount": 1,
+							"OverrideText": "chocolate milk, any",
+							"OverrideTexturePath": "{{InternalAssetKey: assets/chocomilk_small.png}}",
+							"OverrideTextureRect": {
+								"X": 0,
+								"Y": 0,
+								"Width": 16,
+								"Height": 16
+							}
+            }
+          ]
+        }
+      }
+    },
+    {
+      "LogName": "Add hot chocolate recipe to saloon",
+      "Action": "EditData",
+      "Target": "Data/Shops",
+      "TargetField": [
+        "Saloon",
+        "Items"
+      ],
+      "Entries": {
+        "{{ModId}}_HotChocolate_Recipe": {
+          "Id": "{{ModId}}_HotChocolate_Recipe",
+          "ItemId": "(O)hot_chocolate",
+          "IsRecipe": true,
+          "ObjectInternalName": "{{ModId}}_HotChocolate"
+        }
+      }
+    },
+    {
       "LogName": "Load asset for adult Milka cow",
       "Action": "Load",
       "Target": "assets/Animals/milka_cow",
@@ -206,6 +365,24 @@
       "Action": "Load",
       "Target": "assets/Items/chocomilk_big",
       "FromFile": "assets/chocomilk_big.png"
+    },
+    {
+      "LogName": "Load asset for chocolate cream",
+      "Action": "Load",
+      "Target": "assets/Items/chocolate_cream",
+      "FromFile": "assets/chocolate_cream.png"
+    },
+    {
+      "LogName": "Load asset for chocolate pudding",
+      "Action": "Load",
+      "Target": "assets/Items/chocolate_pudding",
+      "FromFile": "assets/chocolate_pudding.png"
+    },
+    {
+      "LogName": "Load asset for hot chocolate",
+      "Action": "Load",
+      "Target": "assets/Items/hot_chocolate",
+      "FromFile": "assets/hot_chocolate.png"
     }
   ]
 }
